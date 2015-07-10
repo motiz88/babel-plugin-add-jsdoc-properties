@@ -2,7 +2,10 @@
   "name": "babel-plugin-class-properties-7to6",
   "version": "0.0.1",
   "description": "es7.classProperties without es6.classes",
-  "repository": "motiz88/babel-plugin-class-properties-7to6",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/motiz88/babel-plugin-class-properties-7to6"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "dependencies": {
@@ -25,5 +28,13 @@
     "babel-plugin",
     "sample",
     "example"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/motiz88/babel-plugin-class-properties-7to6/issues"
+  },
+  "homepage": "https://github.com/motiz88/babel-plugin-class-properties-7to6",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Moti Zilberman (motiz88@gmail.com)"
 }
