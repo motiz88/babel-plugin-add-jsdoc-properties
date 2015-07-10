@@ -1,4 +1,1 @@
-"use strict";
-
-"use helloworld";
-hiThere();
+class A {}

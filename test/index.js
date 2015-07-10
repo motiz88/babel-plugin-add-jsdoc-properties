@@ -12,7 +12,8 @@ var pluginPath = require.resolve('../src');
 function runTest() {
 	var output = babel.transformFileSync(__dirname + '/fixtures/actual.js', {
 		optional: ['runtime'],
-		plugins: [pluginPath]
+		plugins: [pluginPath],
+		whitelist: ['es7.classProperties'],
 	});
 
 	var expected = fs.readFileSync(__dirname + '/fixtures/expected.js', 'utf-8');
