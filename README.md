@@ -1,11 +1,11 @@
-# babel-plugin-hello-world
+# babel-plugin-class-properties-7to6
 
-Extended plugin sample for Babel.
+[es7.classProperties](https://gist.github.com/jeffmo/054df782c05639da2adb) without [es6.classes](https://babeljs.io/docs/learn-es2015/#classes).
 
 ## Installation
 
 ```sh
-$ npm install babel-plugin-hello-world
+$ npm install babel-plugin-class-properties-7to6
 ```
 
 ## Usage
@@ -16,20 +16,20 @@ $ npm install babel-plugin-hello-world
 
 ```json
 {
-  "plugins": ["hello-world"]
+  "plugins": ["class-properties-7to6"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel --plugins hello-world script.js
+$ babel --plugins class-properties-7to6 script.js
 ```
 
 ### Via Node API
 
 ```javascript
 require('babel').transform('code', {
-  plugins: ['hello-world']
+  plugins: ['class-properties-7to6']
 });
 ```
