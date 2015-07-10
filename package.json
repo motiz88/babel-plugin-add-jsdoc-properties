@@ -1,10 +1,10 @@
 {
-  "name": "babel-plugin-class-properties-7to6",
+  "name": "babel-plugin-jsdoc",
   "version": "0.0.1",
-  "description": "es7.classProperties without es6.classes",
+  "description": "Adds JSDoc annotations to source code",
   "repository": {
     "type": "git",
-    "url": "https://github.com/motiz88/babel-plugin-class-properties-7to6"
+    "url": "https://github.com/motiz88/babel-plugin-jsdoc"
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -30,9 +30,9 @@
     "example"
   ],
   "bugs": {
-    "url": "https://github.com/motiz88/babel-plugin-class-properties-7to6/issues"
+    "url": "https://github.com/motiz88/babel-plugin-jsdoc/issues"
   },
-  "homepage": "https://github.com/motiz88/babel-plugin-class-properties-7to6",
+  "homepage": "https://github.com/motiz88/babel-plugin-jsdoc",
   "directories": {
     "test": "test"
   },
