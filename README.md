@@ -2,6 +2,8 @@
 
 Adds [JSDoc](https://github.com/jsdoc3/jsdoc) annotations to source code.
 
+[![Build Status](https://travis-ci.org/motiz88/babel-plugin-jsdoc.svg)](https://travis-ci.org/motiz88/babel-plugin-jsdoc)
+
 This module only handles a handful of cases at the moment, designed to take the tedium out of documenting ES2015+ classes with JSDoc.
 
 ## Installation
