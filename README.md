@@ -2,6 +2,8 @@
 
 Adds [JSDoc](https://github.com/jsdoc3/jsdoc) annotations to source code.
 
+This module only handles a handful of cases at the moment, designed to take the tedium out of documenting ES2015+ classes with JSDoc.
+
 ## Installation
 
 ```sh
@@ -10,7 +12,22 @@ $ npm install babel-plugin-jsdoc
 
 ## Usage
 
-### Via `.babelrc` (Recommended)
+### Via JSDoc (Recommended)
+
+Install [jsdoc-babel](https://github.com/ctumolosus/jsdoc-babel) and load `babel-plugin-jsdoc` within it.
+
+**[conf.json](http://usejsdoc.org/about-configuring-jsdoc.html)**
+
+```json
+{
+    "plugins": ["node_modules/jsdoc-babel"],
+    "babel": {
+        "plugins": ["jsdoc"]
+    }
+}
+```
+
+### Via `.babelrc`
 
 **.babelrc**
 

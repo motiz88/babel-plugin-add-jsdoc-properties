@@ -19,7 +19,7 @@ function runTest() {
 	var expected = fs.readFileSync(__dirname + '/fixtures/expected.js', 'utf-8');
 
 	function normalizeLines(str) {
-		return str.trimRight().replace(/\r\n/g, '\n');
+		return str.trim().replace(/\*\/ */g,'*/ ').replace(/[ \t]+/g, ' ').replace(/[ \t]*\r?\n[ \t]*/g, '\n');
 	}
 
 	diff.diffLines(normalizeLines(output.code), normalizeLines(expected))
