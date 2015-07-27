@@ -2,10 +2,7 @@
     "name": "babel-plugin-jsdoc",
     "version": "0.0.3",
     "description": "Adds JSDoc annotations to source code",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/motiz88/babel-plugin-jsdoc"
-    },
+    "repository": "motiz88/babel-plugin-jsdoc",
     "license": "MIT",
     "main": "dist/index.js",
     "dependencies": {

@@ -13,7 +13,7 @@ function runTest() {
 	var output = babel.transformFileSync(__dirname + '/fixtures/actual.js', {
 		optional: ['runtime'],
 		plugins: [pluginPath],
-		whitelist: ['es7.classProperties'],
+		whitelist: ['es7.classProperties','flow'],
 	});
 
 	var expected = fs.readFileSync(__dirname + '/fixtures/expected.js', 'utf-8');
