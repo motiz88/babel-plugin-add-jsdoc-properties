@@ -23,7 +23,7 @@ export function addTag(tagKeyProps, tagOtherProps) {
 
     const doclet = getDoclet(this.node);
 
-    let notexists = !doclet || !doclet.tags.map(normalizeTag)
+    const notexists = !doclet || !doclet.tags.map(normalizeTag)
         .some(existingTag => {
             return Object.keys(tagKeyProps).every(prop => existingTag[prop] === tag[prop]);
         });

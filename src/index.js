@@ -55,7 +55,7 @@ module.exports = function({ Plugin, types: t }) {
                                 type: '...*',
                             });
                         } else {
-                            let jsdocType = typeAnnotationToJsdocType(
+                            const jsdocType = typeAnnotationToJsdocType(
                                 param.typeAnnotation && param.typeAnnotation.typeAnnotation
                             );
                             path::addTag({
