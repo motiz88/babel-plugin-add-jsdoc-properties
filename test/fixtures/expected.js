@@ -1,4 +1,5 @@
-/** @class */ class A {
+/** @class A */
+class A {
     /** @memberof A
      * @arg arga0
      * @function methoda
@@ -15,7 +16,7 @@
 }
 
 
-/** @class */ class B {
+/** @class B */ class B {
     /** @memberof B
      * @function methodb */
     methodb() {}
@@ -24,14 +25,14 @@
      * @returns {string} */ methodb2() {}
 }
 
-/* @class */ /** @class */ class C {
+/* @class */ /** @class C */ class C {
     /** @memberof C
       * @function methodc */
     methodc() {}
 }
 
 /** This is class D
- * @class */ class D {
+ * @class D */ class D {
     /** @memberof D
       * @function methodd */
     methodd() {}
@@ -50,7 +51,7 @@
      * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg7, arg8, arg9) {}
 }
 
-/** @class */
+/** @class E */
 class E {
     /** @memberof E
       * @static
@@ -63,8 +64,7 @@ class E {
       * @param first
       * @param {...*} args */ methode1(first, ...args) {}
 
-    /** @constructs E
-      * @function */ constructor() {}
+    /** @function */ constructor() {}
 }
 
 export default E;

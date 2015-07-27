@@ -1,3 +1,4 @@
+/** @class A */
 class A {
 	/** @memberof A
 	  * @arg arga0 */
@@ -8,7 +9,7 @@ class A {
    	methoda2(arga0: number, arga1) {}
 }
 
-/** @class */ class B {
+/** @class B */ class B {
 	methodb() {}
    	methodb2(): string {}
 }

@@ -8,15 +8,18 @@ module.exports = function({ Plugin, types: t }) {
     return new Plugin('jsdoc', {
         visitor: {
             'ClassDeclaration|ClassExpression'(node, parent, scope, file) {
-                this::addTag('class');
+                this::addTag({
+                    title: 'class',
+                    name: node.id.name
+                });
             },
 
             'MethodDefinition'(node, parent, scope, file) {
                 if (scope.block && scope.block.id && scope.block.id.name) {
                     if (node.kind === 'constructor') {
-                        this::addTag('constructs', {
-                            description: scope.block.id.name
-                        });
+                        /*this::addTag('constructs', {
+                            name: scope.block.id.name
+                        });*/
                     } else {
                         this::addTag('memberof', {
                             description: scope.block.id.name
