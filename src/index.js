@@ -22,6 +22,8 @@ module.exports = function({ Plugin, types: t }) {
                         });
                         if (node.static) {
                             this::addTag('static');
+                        } else {
+                            this::addTag('instance');
                         }
                     }
                     if (node.key.name) {

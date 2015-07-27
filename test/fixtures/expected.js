@@ -2,6 +2,7 @@
 class A {
     /** @memberof A
      * @arg arga0
+     * @instance
      * @method methoda
      * @param arga0
      * @param arga1 */
@@ -9,6 +10,7 @@ class A {
 
     /** @memberof A
      * @arg arga0
+     * @instance
      * @method methoda2
      * @param {number} arga0
      * @param arga1 */
@@ -22,19 +24,24 @@ class A {
     */
     constructor(n) {}
     /** @memberof B
+     * @instance
      * @method methodb */ methodb() {}
     /** @memberof B
+     * @instance
      * @method methodb2
      * @returns {string} */ methodb2() {}
 
     /** @memberof B
+     * @instance
      * @property prop */ get prop() {}
     /** @memberof B
+     * @instance
      * @param prop */ set prop(prop) {}
 }
 
 /* @class */ /** @class C */ class C {
     /** @memberof C
+     * @instance
      * @method methodc */
     methodc() {}
 }
@@ -44,8 +51,10 @@ class A {
  * @param {number} n */ class D {
     constructor(n) {}
     /** @memberof D
+     * @instance
      * @method methodd */ methodd() {}
     /** @memberof D
+     * @instance
      * @method methodd2
      * @param {string} arg1
      * @param {number} arg2
@@ -63,10 +72,12 @@ class A {
      * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 = 0, arg13 = 'test') {}
 
     /** @method method3
-    * @memberof D */
+     * @memberof D
+     * @instance */
     ['method' + 3]() {}
     /** @method @@iterator
-    * @memberof D */
+     * @memberof D
+     * @instance */
     [Symbol.iterator]() {}
 }
 
@@ -79,6 +90,7 @@ class E {
     static methode0(i) {}
 
     /** @memberof E
+     * @instance
      * @method methode1
      * @param first
      * @param {...*} args */ methode1(first, ...args) {}
