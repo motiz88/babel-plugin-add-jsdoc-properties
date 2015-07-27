@@ -47,10 +47,13 @@ class A {
      * @param {Array.<string>} arg5
      * @param {Function} arg6
      * @param {Function} arg7
-     * @param {Map.<string, number>} arg7
-     * @param {Set.<string>} arg8
-     * @param {Promise.<string>} arg9
-     * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg7, arg8, arg9) {}
+     * @param {Map.<string, number>} arg8
+     * @param {Set.<string>} arg9
+     * @param {Promise.<string>} arg10
+     * @param {int} [arg11]
+     * @param {int} [arg12=0]
+     * @param {string} [arg13=test]
+     * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 = 0, arg13 = 'test') {}
 }
 
 /** @class E */

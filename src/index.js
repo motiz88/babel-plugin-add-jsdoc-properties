@@ -52,14 +52,23 @@ module.exports = function({ Plugin, types: t }) {
                                 name: param.argument.name,
                                 type: '...*',
                             });
+                        } else if (param.type === 'AssignmentPattern' ) {
+                            const jsdocType = typeAnnotationToJsdocType(
+                                param.left.typeAnnotation && param.left.typeAnnotation.typeAnnotation
+                            );
+                            path::addTag({
+                                title: 'param',
+                                name: '[' + param.left.name + '=' + param.right.value + ']',
+                                type: jsdocType
+                            });
                         } else {
                             const jsdocType = typeAnnotationToJsdocType(
                                 param.typeAnnotation && param.typeAnnotation.typeAnnotation
                             );
                             path::addTag({
                                 title: 'param',
-                                name: param.name,
-                                type: jsdocType && (jsdocType + (param.optional ? '=' : ''))
+                                name: param.optional ? '[' + param.name + ']' : param.name,
+                                type: jsdocType,
                             });
                         }
                     });

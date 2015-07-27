@@ -40,9 +40,12 @@ class A {
         arg5: Array<string>,
         arg6: Class<SomeOtherClass>,
         arg7: Function,
-        arg7: Map<string, number>,
-        arg8: Set<string>,
-        arg9: Promise<string>
+        arg8: Map<string, number>,
+        arg9: Set<string>,
+        arg10: Promise<string>,
+        arg11?: int,
+        arg12: int = 0,
+        arg13: string = 'test'
     ): string {}
 }
 
