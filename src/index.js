@@ -31,10 +31,6 @@ module.exports = function({ Plugin, types: t }) {
                             this::addTag('method', {
                                 name: node.key.name
                             });
-                        } else if (node.kind === 'get') {
-                            this::addTag('property', {
-                                name: node.key.name
-                            });
                         }
                     }
                 }
@@ -86,7 +82,12 @@ module.exports = function({ Plugin, types: t }) {
                     });
                 }
 
-                if (node.returnType) {
+                if (parent.kind === 'get') {
+                    path::addTag('member', {
+                        name: parent.key.name,
+                        type: node.returnType && typeAnnotationToJsdocType(node.returnType.typeAnnotation),
+                    });
+                } else if (node.returnType) {
                     path::addTag({
                         title: 'returns',
                         type: typeAnnotationToJsdocType(node.returnType.typeAnnotation)

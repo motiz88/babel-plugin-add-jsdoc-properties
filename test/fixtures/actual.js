@@ -21,6 +21,7 @@ class A {
 
     get prop() {}
     set prop(prop) {}
+    get prop2(): number {}
 }
 
 /* @class */ class C {

@@ -33,10 +33,14 @@ class A {
 
     /** @memberof B
      * @instance
-     * @property prop */ get prop() {}
+     * @member prop */ get prop() {}
     /** @memberof B
      * @instance
      * @param prop */ set prop(prop) {}
+
+    /** @memberof B
+     * @instance
+     * @member {number} prop2 */ get prop2() {}
 }
 
 /* @class */ /** @class C */ class C {
