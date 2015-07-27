@@ -2,14 +2,14 @@
 class A {
     /** @memberof A
      * @arg arga0
-     * @method A#methoda
+     * @method methoda
      * @param arga0
      * @param arga1 */
     methoda(arga0, arga1) {}
 
     /** @memberof A
      * @arg arga0
-     * @method A#methoda2
+     * @method methoda2
      * @param {number} arga0
      * @param arga1 */
     methoda2(arga0, arga1) {}
@@ -21,16 +21,21 @@ class A {
     * @param {number} n
     */
     constructor(n) {}
-    /** @method B#methodb */ methodb() {}
-    /** @method B#methodb2
+    /** @memberof B
+     * @method methodb */ methodb() {}
+    /** @memberof B
+     * @method methodb2
      * @returns {string} */ methodb2() {}
 
-    /** @property B#prop */ get prop() {}
-    /** @param prop */ set prop(prop) {}
+    /** @memberof B
+     * @property prop */ get prop() {}
+    /** @memberof B
+     * @param prop */ set prop(prop) {}
 }
 
 /* @class */ /** @class C */ class C {
-    /** @method C#methodc */
+    /** @memberof C
+     * @method methodc */
     methodc() {}
 }
 
@@ -38,8 +43,10 @@ class A {
  * @class D
  * @param {number} n */ class D {
     constructor(n) {}
-    /** @method D#methodd */ methodd() {}
-    /** @method D#methodd2
+    /** @memberof D
+     * @method methodd */ methodd() {}
+    /** @memberof D
+     * @method methodd2
      * @param {string} arg1
      * @param {number} arg2
      * @param {boolean} arg3
@@ -54,17 +61,27 @@ class A {
      * @param {int} [arg12=0]
      * @param {string} [arg13=test]
      * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 = 0, arg13 = 'test') {}
+
+    /** @method method3
+    * @memberof D */
+    ['method' + 3]() {}
+    /** @method @@iterator
+    * @memberof D */
+    [Symbol.iterator]() {}
 }
 
 /** @class E */
 class E {
-    /** @method E.methode0
-      * @param i */
+    /** @memberof E
+     * @static
+     * @method methode0
+     * @param i */
     static methode0(i) {}
 
-    /** @method E#methode1
-      * @param first
-      * @param {...*} args */ methode1(first, ...args) {}
+    /** @memberof E
+     * @method methode1
+     * @param first
+     * @param {...*} args */ methode1(first, ...args) {}
 
     constructor() {}
 }

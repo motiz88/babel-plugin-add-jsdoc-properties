@@ -16,14 +16,24 @@ module.exports = function({ Plugin, types: t }) {
 
             'MethodDefinition'(node, parent, scope, file) {
                 if (scope.block && scope.block.id && scope.block.id.name) {
-                    if (node.kind === 'method') {
-                        this::addTag('method', {
-                            name: scope.block.id.name + ( node.static ? '.': '#') + node.key.name
+                    if (node.kind !== 'constructor') {
+                        this::addTag('memberof', {
+                            name: scope.block.id.name
                         });
-                    } else if (node.kind === 'get') {
-                        this::addTag('property', {
-                            name: scope.block.id.name + ( node.static ? '.': '#') + node.key.name
-                        });
+                        if (node.static) {
+                            this::addTag('static');
+                        }
+                    }
+                    if (node.key.name) {
+                        if (node.kind === 'method') {
+                            this::addTag('method', {
+                                name: node.key.name
+                            });
+                        } else if (node.kind === 'get') {
+                            this::addTag('property', {
+                                name: node.key.name
+                            });
+                        }
                     }
                 }
             },

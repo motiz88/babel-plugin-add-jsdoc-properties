@@ -47,6 +47,11 @@ class A {
         arg12: int = 0,
         arg13: string = 'test'
     ): string {}
+
+    /** @method method3 */
+    ['method'+3]() {}
+    /** @method @@iterator */
+    [Symbol.iterator]() {}
 }
 
 export default class E {
