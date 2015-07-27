@@ -16,18 +16,15 @@ module.exports = function({ Plugin, types: t }) {
 
             'MethodDefinition'(node, parent, scope, file) {
                 if (scope.block && scope.block.id && scope.block.id.name) {
-                    if (node.kind === 'constructor') {
-                        /*this::addTag('constructs', {
-                            name: scope.block.id.name
-                        });*/
-                    } else {
-                        this::addTag('memberof', {
-                            description: scope.block.id.name
+                    if (node.kind === 'method') {
+                        this::addTag('method', {
+                            name: scope.block.id.name + ( node.static ? '.': '#') + node.key.name
+                        });
+                    } else if (node.kind === 'get') {
+                        this::addTag('property', {
+                            name: scope.block.id.name + ( node.static ? '.': '#') + node.key.name
                         });
                     }
-                }
-                if (node.static) {
-                    this::addTag('static');
                 }
             },
 
@@ -36,16 +33,14 @@ module.exports = function({ Plugin, types: t }) {
 
                 if (t.isMethodDefinition(parent)) {
                     path = this.parentPath;
+                    if (parent.kind === 'constructor') {
+                        path = path.parentPath.parentPath;
+                    }
                 }
 
-                if (!(scope.block && scope.block.id && scope.block.id.name && node.kind === 'constructor')) {
-                    let name;
-                    if (t.isMethodDefinition(parent) && parent.kind !== 'constructor') {
-                        name = parent.key.name;
-                    }
-                    path::addTag({
-                        title: 'function',
-                        name: name
+                if (!t.isMethodDefinition(parent)) {
+                    path::addTag('function', {
+                        name: node.key && node.key.name
                     });
                 }
 

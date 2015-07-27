@@ -2,42 +2,44 @@
 class A {
     /** @memberof A
      * @arg arga0
-     * @function methoda
+     * @method A#methoda
      * @param arga0
      * @param arga1 */
     methoda(arga0, arga1) {}
 
     /** @memberof A
      * @arg arga0
-     * @function methoda2
+     * @method A#methoda2
      * @param {number} arga0
      * @param arga1 */
     methoda2(arga0, arga1) {}
 }
 
-
-/** @class B */ class B {
-    /** @memberof B
-     * @function methodb */
-    methodb() {}
-    /** @memberof B
-     * @function methodb2
+/** @class B
+* @param n */ class B {
+    /**
+    * @param {number} n
+    */
+    constructor(n) {}
+    /** @method B#methodb */ methodb() {}
+    /** @method B#methodb2
      * @returns {string} */ methodb2() {}
+
+    /** @property B#prop */ get prop() {}
+    /** @param prop */ set prop(prop) {}
 }
 
 /* @class */ /** @class C */ class C {
-    /** @memberof C
-      * @function methodc */
+    /** @method C#methodc */
     methodc() {}
 }
 
 /** This is class D
- * @class D */ class D {
-    /** @memberof D
-      * @function methodd */
-    methodd() {}
-    /** @memberof D
-     * @function methodd2
+ * @class D
+ * @param {number} n */ class D {
+    constructor(n) {}
+    /** @method D#methodd */ methodd() {}
+    /** @method D#methodd2
      * @param {string} arg1
      * @param {number} arg2
      * @param {boolean} arg3
@@ -53,18 +55,15 @@ class A {
 
 /** @class E */
 class E {
-    /** @memberof E
-      * @static
-      * @function methode0
+    /** @method E.methode0
       * @param i */
     static methode0(i) {}
 
-    /** @memberof E
-      * @function methode1
+    /** @method E#methode1
       * @param first
       * @param {...*} args */ methode1(first, ...args) {}
 
-    /** @function */ constructor() {}
+    constructor() {}
 }
 
 export default E;

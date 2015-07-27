@@ -10,8 +10,17 @@ class A {
 }
 
 /** @class B */ class B {
+    /**
+     * @param {number} n
+     */
+    constructor(n) {
+
+    }
 	methodb() {}
    	methodb2(): string {}
+
+    get prop() {}
+    set prop(prop) {}
 }
 
 /* @class */ class C {
@@ -19,6 +28,9 @@ class A {
 }
 
 /** This is class D */ class D {
+    constructor(n: number) {
+
+    }
 	methodd() {}
     methodd2(
         arg1: string,
