@@ -1,3 +1,4 @@
+/** @class A */
 class A {
 	/** @memberof A
 	  * @arg arga0 */
@@ -8,9 +9,19 @@ class A {
    	methoda2(arga0: number, arga1) {}
 }
 
-/** @class */ class B {
+/** @class B */ class B {
+    /**
+     * @param {number} n
+     */
+    constructor(n) {
+
+    }
 	methodb() {}
    	methodb2(): string {}
+
+    get prop() {}
+    set prop(prop) {}
+    get prop2(): number {}
 }
 
 /* @class */ class C {
@@ -18,6 +29,9 @@ class A {
 }
 
 /** This is class D */ class D {
+    constructor(n: number) {
+
+    }
 	methodd() {}
     methodd2(
         arg1: string,
@@ -27,10 +41,18 @@ class A {
         arg5: Array<string>,
         arg6: Class<SomeOtherClass>,
         arg7: Function,
-        arg7: Map<string, number>,
-        arg8: Set<string>,
-        arg9: Promise<string>
+        arg8: Map<string, number>,
+        arg9: Set<string>,
+        arg10: Promise<string>,
+        arg11?: int,
+        arg12: int = 0,
+        arg13: string = 'test'
     ): string {}
+
+    /** @method method3 */
+    ['method'+3]() {}
+    /** @method @@iterator */
+    [Symbol.iterator]() {}
 }
 
 export default class E {
