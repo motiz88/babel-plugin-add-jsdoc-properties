@@ -1,8 +1,8 @@
 {
-  "name": "babel-plugin-add-jsoc-properties",
+  "name": "babel-plugin-add-jsdoc-properties",
   "version": "0.1.4",
   "description": "Adds JSDoc annotations to source code",
-  "repository": "motiz88/babel-plugin-add-jsoc-properties",
+  "repository": "motiz88/babel-plugin-add-jsdoc-properties",
   "license": "MIT",
   "main": "dist/index.js",
   "dependencies": {
@@ -32,9 +32,9 @@
     "example"
   ],
   "bugs": {
-    "url": "https://github.com/motiz88/babel-plugin-add-jsoc-properties/issues"
+    "url": "https://github.com/motiz88/babel-plugin-add-jsdoc-properties/issues"
   },
-  "homepage": "https://github.com/motiz88/babel-plugin-add-jsoc-properties",
+  "homepage": "https://github.com/motiz88/babel-plugin-add-jsdoc-properties",
   "directories": {
     "test": "test"
   },
