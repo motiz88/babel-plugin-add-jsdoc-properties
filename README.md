@@ -24,7 +24,7 @@ Install [jsdoc-babel](https://github.com/ctumolosus/jsdoc-babel) and load `babel
 {
     "plugins": ["node_modules/jsdoc-babel"],
     "babel": {
-        "plugins": ["jsdoc"]
+        "plugins": ["add-jsdoc-properties"]
     }
 }
 ```
@@ -35,20 +35,20 @@ Install [jsdoc-babel](https://github.com/ctumolosus/jsdoc-babel) and load `babel
 
 ```json
 {
-  "plugins": ["jsdoc"]
+  "plugins": ["add-jsdoc-properties"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel --plugins jsdoc script.js
+$ babel --plugins add-jsdoc-properties script.js
 ```
 
 ### Via Node API
 
 ```javascript
 require('babel').transform('code', {
-  plugins: ['jsdoc']
+  plugins: ['add-jsdoc-properties']
 });
 ```
