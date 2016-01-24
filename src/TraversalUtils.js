@@ -1,16 +1,16 @@
 import {getDoclet, docCommentIndex} from './NodeUtils';
 import {normalize as normalizeTag} from './TagUtils';
 
-export function appendDocFragment(fragment) {
-    const idx = docCommentIndex(this.node);
+export function appendDocFragment(path, fragment) {
+    const idx = docCommentIndex(path.node);
     if (idx === -1) {
-        this.addComment('leading', `* ${fragment} `);
+        path.addComment('leading', `* ${fragment} `);
     } else {
-        this.node.leadingComments[idx].value += `${'\n'}* ${fragment} `;
+        path.node.leadingComments[idx].value += `${'\n'}* ${fragment} `;
     }
 }
 
-export function addTag(tagKeyProps, tagOtherProps) {
+export function addTag(path, tagKeyProps, tagOtherProps) {
     if (typeof tagKeyProps === 'string') {
         tagKeyProps = {
             title: tagKeyProps
@@ -21,7 +21,7 @@ export function addTag(tagKeyProps, tagOtherProps) {
     let tag = tagKeyProps;
     const normTag = normalizeTag(tag);
 
-    const doclet = getDoclet(this.node);
+    const doclet = getDoclet(path.node);
 
     const notexists = !doclet || !doclet.tags.map(normalizeTag)
         .some(existingTag => {
@@ -37,6 +37,6 @@ export function addTag(tagKeyProps, tagOtherProps) {
             tag.name && tag.description && '-',
             tag.description
         ].filter(Boolean);
-        this::appendDocFragment(elements.join(' '));
+        appendDocFragment(path, elements.join(' '));
     }
 }
