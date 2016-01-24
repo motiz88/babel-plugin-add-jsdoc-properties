@@ -44,9 +44,10 @@ class A {
         arg8: Map<string, number>,
         arg9: Set<string>,
         arg10: Promise<string>,
-        arg11?: int,
-        arg12: int = 0,
-        arg13: string = 'test'
+        arg11?,
+        arg12?: int,
+        arg13: int = 0,
+        arg14: string = 'test'
     ): string {}
 
     /** @method method3 */

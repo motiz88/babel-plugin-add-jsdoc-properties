@@ -1,21 +1,26 @@
 var assert = require('assert');
-var babel = require('babel');
+var babel = require('babel-core');
 var chalk = require('chalk');
 var clear = require('clear');
 var diff = require('diff');
 var fs = require('fs');
 
-require('babel/register');
+// require('babel/register');
 
-var pluginPath = require.resolve('../src');
+var pluginPath = require.resolve('../dist');
 
 function runTest() {
 	var output = babel.transformFileSync(__dirname + '/fixtures/actual.js', {
-		optional: ['runtime'],
-		plugins: [pluginPath],
-		whitelist: ['es7.classProperties','flow'],
+		babelrc: false,
+		presets: [],
+		plugins: [
+			"syntax-flow",
+			"transform-class-constructor-call",
+			"transform-class-properties",
+            "transform-flow-strip-types",
+			pluginPath
+		],
 	});
-
 	var expected = fs.readFileSync(__dirname + '/fixtures/expected.js', 'utf-8');
 
 	function normalizeLines(str) {

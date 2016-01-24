@@ -70,10 +70,11 @@ class A {
      * @param {Map.<string, number>} arg8
      * @param {Set.<string>} arg9
      * @param {Promise.<string>} arg10
-     * @param {int} [arg11]
-     * @param {int} [arg12=0]
-     * @param {string} [arg13=test]
-     * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 = 0, arg13 = 'test') {}
+     * @param [arg11]
+     * @param {int} [arg12]
+     * @param {int} [arg13=0]
+     * @param {string} [arg14=test]
+     * @returns {string} */ methodd2(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13 = 0, arg14 = 'test') {}
 
     /** @method method3
      * @memberof D
@@ -85,8 +86,7 @@ class A {
     [Symbol.iterator]() {}
 }
 
-/** @class E */
-class E {
+export default /** @class E */ class E {
     /** @memberof E
      * @static
      * @method methode0
@@ -101,5 +101,3 @@ class E {
 
     constructor() {}
 }
-
-export default E;

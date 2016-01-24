@@ -1,61 +1,56 @@
-require("babel/polyfill");
-
 import 'better-log/install';
 import { addTag } from './TraversalUtils';
 import typeAnnotationToJsdocType from './typeAnnotationToJsdocType';
 
-module.exports = function({ Plugin, types: t }) {
-    return new Plugin('jsdoc', {
+module.exports = function({ types: t }) {
+    return {
         visitor: {
-            'ClassDeclaration|ClassExpression'(node, parent, scope, file) {
-                this::addTag({
+            'ClassDeclaration|ClassExpression'(path, state) {
+                this::addTag(path, {
                     title: 'class',
-                    name: node.id.name
+                    name: path.node.id.name
                 });
             },
 
-            'MethodDefinition'(node, parent, scope, file) {
-                if (scope.block && scope.block.id && scope.block.id.name) {
-                    if (node.kind !== 'constructor') {
-                        this::addTag('memberof', {
-                            name: scope.block.id.name
-                        });
-                        if (node.static) {
-                            this::addTag('static');
-                        } else {
-                            this::addTag('instance');
-                        }
-                    }
-                    if (node.key.name) {
-                        if (node.kind === 'method') {
-                            this::addTag('method', {
-                                name: node.key.name
-                            });
-                        }
-                    }
-                }
-            },
+            'FunctionDeclaration|FunctionExpression|ClassMethod'(path, state) {
+                const node = path.node;
+                const parent = path.parent;
 
-            'FunctionDeclaration|FunctionExpression'(node, parent, scope, file) {
-                let path = this;
-
-                if (t.isMethodDefinition(parent)) {
-                    path = this.parentPath;
-                    if (parent.kind === 'constructor') {
-                        path = path.parentPath.parentPath;
-                    }
-                }
-
-                if (!t.isMethodDefinition(parent)) {
-                    path::addTag('function', {
+                if (!t.isClassMethod(node)) {
+                    path::addTag(path, 'function', {
                         name: node.key && node.key.name
                     });
+                } else {
+                    const classDeclarationId = path.parentPath.parent.id;
+                    if (classDeclarationId.name) {
+                        if (node.kind !== 'constructor') {
+                            this::addTag(path, 'memberof', {
+                                name: classDeclarationId.name
+                            });
+                            if (node.static) {
+                                this::addTag(path, 'static');
+                            } else {
+                                this::addTag(path, 'instance');
+                            }
+
+                            if (node.key.name) {
+                                if (node.kind === 'method') {
+                                    this::addTag(path, 'method', {
+                                        name: node.key.name
+                                    });
+                                }
+                            }
+                        } else {
+                            // add tags in ClassDeclaration
+                            path = path.parentPath.parentPath;
+                        }
+                    }
                 }
 
                 if (node.params) {
                     node.params.forEach(param => {
                         if (param.type === 'RestElement') {
-                            path::addTag({
+                            path::addTag(path, {
                                 title: 'param',
                                 name: param.argument.name,
                                 type: '...*',
@@ -64,7 +59,7 @@ module.exports = function({ Plugin, types: t }) {
                             const jsdocType = typeAnnotationToJsdocType(
                                 param.left.typeAnnotation && param.left.typeAnnotation.typeAnnotation
                             );
-                            path::addTag({
+                            path::addTag(path, {
                                 title: 'param',
                                 name: '[' + param.left.name + '=' + param.right.value + ']',
                                 type: jsdocType
@@ -73,7 +68,7 @@ module.exports = function({ Plugin, types: t }) {
                             const jsdocType = typeAnnotationToJsdocType(
                                 param.typeAnnotation && param.typeAnnotation.typeAnnotation
                             );
-                            path::addTag({
+                            path::addTag(path, {
                                 title: 'param',
                                 name: param.optional ? '[' + param.name + ']' : param.name,
                                 type: jsdocType,
@@ -82,18 +77,18 @@ module.exports = function({ Plugin, types: t }) {
                     });
                 }
 
-                if (parent.kind === 'get') {
-                    path::addTag('member', {
-                        name: parent.key.name,
+                if (node.kind === 'get') {
+                    path::addTag(path, 'member', {
+                        name: node.key.name,
                         type: node.returnType && typeAnnotationToJsdocType(node.returnType.typeAnnotation),
                     });
                 } else if (node.returnType) {
-                    path::addTag({
+                    path::addTag(path, {
                         title: 'returns',
                         type: typeAnnotationToJsdocType(node.returnType.typeAnnotation)
                     });
                 }
             }
         }
-    });
+    };
 };
