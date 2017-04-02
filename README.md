@@ -1,5 +1,7 @@
 # babel-plugin-add-jsdoc-properties
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/motiz88/babel-plugin-add-jsdoc-properties.svg)](https://greenkeeper.io/)
+
 Adds [JSDoc](https://github.com/jsdoc3/jsdoc) annotations to source code.
 
 This module only handles a handful of cases at the moment, designed to take the tedium out of documenting ES2015+ classes with JSDoc.
